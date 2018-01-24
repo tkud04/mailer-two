@@ -21,13 +21,11 @@
 
  <script type="text/javascript">
  var count = 0;
- var leadsLength = 0;
- var leadsOrig = [];
  
     $(document).ready(function() {
     	l = ""; t = ""; c = "";
     	$('#sendFormSubmit').click(function(e){
-          l = $('#leads').val(); leadsOrig = l;
+          l = $('#leads').val();
           t = $('#title').val();
           c = $('#content').val();
           
@@ -40,11 +38,10 @@
           else{
              leads = l.split('\n');
              //alert(leads.length);
-             leadsLength = leads.length;
              var mailInterval;
              
              if(leads.length >= 1){
-             	initSendMail(t,c);
+             	sendMail(leads,t,c);
              }
           }
           
@@ -52,18 +49,12 @@
         });
     });
     
-    function initSendMail(t, c){
-       recpt = leadsOrig[count];
-       sendMail(recpt,t, c);
-    } 
-    
     function sendMail(ld,title,content){
         data = {"_token": "{{csrf_token()}}", "leads": ld, "title": title,"content": content};
            $.ajax({
     
    type : 'POST',
    url  : "{{url('send')}}",
-   async: false, 
    data : data,
    beforeSend: function()
    { 
@@ -75,18 +66,7 @@
       {        
         //alert(response);
         $("#working").fadeOut();
-      if(response == "success"){
-      	formerResult = $("#response").html();
-          newResult = formerResult + " Email sent to " + lead + " successfully!<br>";
-          $("#response").html(newResult);
-          
-          ++count;
-          window.setTimeout(function(){console.log("Wait for 5 seconds..");},500);
-          
-          if(count < leadsLength){
-          	sendMail(leadsOrig[count],title,content);
-           }
-       }   
+      $("#response").html(response);     
      }
    });
          return false;            

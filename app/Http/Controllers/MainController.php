@@ -64,10 +64,16 @@ class MainController extends Controller {
                     # return "leads has ".count($leads)." elements";
                      $ret = "";
                      
+                     if(count($leads) > 0)
+                     {
+                     	foreach($leads as $lead)
+                         {
                          	$this->helpers->sendEmail($lead,$title,['content' => $content],'emails.bomb','view');
-                             $ret = "success";
+                             $ret.= "<h3 class='text-success'><i class='fa fa-paper-plane'></i> Message sent to $lead successfully</h3><br>";
                              #sleep(500);
-                             
+                         }
+                     	
+                     }
                      return $ret;                     
                   }                               
 	}

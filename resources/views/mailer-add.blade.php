@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
   	<div class="col-lg-12 col-xs-12">
-  	  <center><h2>Simple AJAX Mailer</h2></center>
+  	  <center><h2>Custom SMTP Mailer</h2></center>
       </div>
   </div><br>
   	
