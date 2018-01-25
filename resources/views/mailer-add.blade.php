@@ -24,7 +24,9 @@
   
    <div class="row">
   	<div class="col-lg-12 col-xs-12">
-  	  <center> <button id="sendFormSubmit" class="btn btn-success">Send</button></center>
+  	  <center> <button id="sendFormSubmit" class="btn btn-success">Send</button>
+        <button id="test" class="btn btn-success">Test</button>
+        </center>
       </div>
   </div><br>
   	

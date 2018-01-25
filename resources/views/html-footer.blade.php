@@ -1,11 +1,13 @@
 <script type="text/javascript" src="{{asset('js/jquery.1.8.3.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery-ui.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/jquery.richtext.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery-scrolltofixed.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.easing.1.3.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.isotope.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/wow.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/classie.js')}}"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function(e) {
@@ -46,6 +48,13 @@
           }
           
           return false;
+        });
+        
+        $('#content').richText();
+        
+        $('#test').click(function(e){
+        	res = $('#content').html();
+            alert(res);
         });
     });
     
