@@ -26,6 +26,15 @@
  
     $(document).ready(function() {
     	l = ""; t = ""; c = "";
+    
+        $('#content').richText();
+        
+        $('#test').click(function(e){
+        	res = $('#content').html();
+            alert(res);
+            e.preventDefault();
+        });
+        
     	$('#sendFormSubmit').click(function(e){
           l = $('#leads').val();
           t = $('#title').val();
@@ -50,12 +59,7 @@
           return false;
         });
         
-        $('#content').richText();
         
-        $('#test').click(function(e){
-        	res = $('#content').html();
-            alert(res);
-        });
     });
     
     function sendMail(ld,title,content){
