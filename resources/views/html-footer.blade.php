@@ -79,7 +79,7 @@
       {        
         //alert(response);
         $("#working").fadeOut();
-      $("#response").html(response);     
+      $("#response > table > tbody").html(response);     
      }
    });
          return false;            
